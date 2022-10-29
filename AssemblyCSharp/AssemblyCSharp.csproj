@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <TargetFramework>net35</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>7.3</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RootNamespace />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="LitJSON">
+      <HintPath>..\Lib\LitJson.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine">
+      <HintPath>..\Game\Game_Data\Managed\UnityEngine.dll</HintPath>
+    </Reference>
+	<Reference Include="mscorlib">
+      <HintPath>..\Game\Game_Data\Managed\mscorlib.dll</HintPath>
+    </Reference>
+	<Reference Include="System.Core">
+      <HintPath>..\Game\Game_Data\Managed\System.Core.dll</HintPath>
+    </Reference>
+	<Reference Include="System">
+      <HintPath>..\Game\Game_Data\Managed\System.dll</HintPath>
+    </Reference>
+	<Reference Include="VietKey.NET">
+	  <HintPath>..\Game\Game_Data\Managed\VietKey.NET.dll</HintPath>
+	</Reference>
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(TargetDir)Assembly-CSharp.dll&quot; &quot;$(SolutionDir)Game\Game_Data\Managed\&quot;" />
+  </Target>
+</Project>
